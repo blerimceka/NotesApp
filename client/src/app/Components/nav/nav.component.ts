@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/Interfaces/user';
+import { AccountService } from 'src/app/Services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(public accountService: AccountService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.accountService.logout();
   }
 
 }

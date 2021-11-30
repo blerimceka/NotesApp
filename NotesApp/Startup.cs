@@ -43,6 +43,7 @@ namespace NotesApp
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotesApp", Version = "v1" });
             });
+            services.AddCors();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -69,6 +70,8 @@ namespace NotesApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthentication();
 

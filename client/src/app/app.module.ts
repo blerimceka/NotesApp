@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './Components/home/home.component';
 import { TodosListComponent } from './Components/todos/todos-list/todos-list.component';
 import { TodosCreateComponent } from './Components/todos/todos-create/todos-create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TodosCreateComponent } from './Components/todos/todos-create/todos-crea
   imports: [
     FormsModule,
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

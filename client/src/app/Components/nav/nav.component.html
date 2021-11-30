@@ -6,15 +6,23 @@
       </button>
   
       <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav me-auto" *ngIf="accountService.currentUser$ | async">
           <li class="nav-item">
             <a class="nav-link active" routerLink="/notes/create">New Note</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" routerLink="/todos/create">New Todo</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome User</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item">Edit Profile</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+              
+            </div>
+          </li>
         </ul>
-        <div class="d-flex">
+        <div class="d-flex" *ngIf="(accountService.currentUser$ | async) == null">          
           <button class="btn btn-primary my-2 my-sm-0" routerLink="/login">Login</button>
           <button class="btn btn-secondary my-2 my-sm-0" routerLink="/register">Register</button>
         </div>
