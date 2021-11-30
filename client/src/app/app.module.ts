@@ -9,6 +9,9 @@ import { NotesListComponent } from './Components/notes/notes-list/notes-list.com
 import { AppRoutingModule } from './app-routing.module';
 import { NotesCreateComponent } from './Components/notes/notes-create/notes-create.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './Components/home/home.component';
+import { TodosListComponent } from './Components/todos/todos-list/todos-list.component';
+import { TodosCreateComponent } from './Components/todos/todos-create/todos-create.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent,
     NotesListComponent,
-    NotesCreateComponent
+    NotesCreateComponent,
+    HomeComponent,
+    TodosListComponent,
+    TodosCreateComponent
   ],
   imports: [
     FormsModule,
