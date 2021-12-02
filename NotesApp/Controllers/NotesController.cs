@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NotesApp.Data;
 using NotesApp.Models;
 using System;
@@ -21,6 +22,12 @@ namespace NotesApp.Controllers
             this.dataContext = dataContext;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Notes>>> GetAll()
+        {
+            return await dataContext.Notes.ToListAsync();
+        }
+
         [HttpPost]
         public async Task<Notes> Create(Notes notes)
         {
@@ -37,5 +44,21 @@ namespace NotesApp.Controllers
             return note;
 
         }
+
+        [HttpDelete("{id}")]
+        public Notes Delete(int id)
+        {
+            var note = dataContext.Notes.FirstOrDefault(x => x.Id == id);
+            if(note == null)   
+            {
+                return null;
+            }
+
+            dataContext.Notes.Remove(note);
+            dataContext.SaveChanges();
+
+            return note;
+        }
+
     }
 }

@@ -1,1 +1,14 @@
-<p>notes-list works!</p>
+<div class="row mt-5">
+    <div class="col-md-3"*ngFor="let note of notes">
+        <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+            <div class="card-header">Note</div>
+            <div class="card-body">
+                <h1 class="card-title">{{note.title}}</h1>
+                <p class="card-text">{{note.description}}</p>
+            </div>
+            <div class="card-footer text-muted">
+                <button type="button" class="btn btn-danger" (click)="delete(note.id)">Delete</button>    
+            </div>
+        </div>
+    </div>
+</div>

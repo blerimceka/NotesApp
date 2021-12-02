@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Notes } from 'src/app/Interfaces/notes';
 import { User } from 'src/app/Interfaces/user';
 import { AccountService } from 'src/app/Services/account.service';
@@ -20,7 +21,7 @@ export class NotesCreateComponent implements OnInit {
   model: Notes;
   userId;
 
-  constructor(private accountService: AccountService, private notesService: NotesService) { }
+  constructor(private accountService: AccountService, private notesService: NotesService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCurrentUser();
@@ -41,7 +42,7 @@ export class NotesCreateComponent implements OnInit {
       description: this.notesForm.value.description
     }
     this.notesService.create(this.model).subscribe(response => {
-      console.log(response);
+        this.router.navigateByUrl('/notes'); 
     })
   }
 
