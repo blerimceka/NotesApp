@@ -49,7 +49,11 @@ namespace NotesApp.Controllers
 
             return new UserDto
             {
+                Id = user.Id,
                 Username = user.UserName,
+                Firstname = user.FirstName,
+                Lastname = user.LastName,
+                Email = user.Email,
                 Token = tokenService.CreateToken(user)
             };
 
@@ -73,7 +77,11 @@ namespace NotesApp.Controllers
 
             return new UserDto
             {
+                Id = user.Id,
                 Username = user.UserName,
+                Firstname = user.FirstName,
+                Lastname = user.LastName,
+                Email = user.Email,
                 Token = tokenService.CreateToken(user)
             };
 

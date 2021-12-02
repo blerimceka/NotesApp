@@ -13,5 +13,6 @@ namespace NotesApp.Data
         {
         }
         public DbSet<Users> Users { get; set; } 
+        public DbSet<Notes> Notes { get; set; }
     }
 }
